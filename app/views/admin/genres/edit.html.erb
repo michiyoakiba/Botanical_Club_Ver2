@@ -1,2 +1,15 @@
-<h1>Admin::Genres#edit</h1>
+<div class="container">
+  <h1 class="my-3 ml-3">ジャンル編集</h1>
+<div class="row">
+
+<div class="col-3">
+<%= form_with model: [:admin,@genre] do |f| %>
+  <label for="Name">ジャンル名</label>
+  <%= f.text_field :genre_name, autofocus: true, id:"name", placeholder:"ジャンル名", :class=>"form-control name" %>
+  <%= f.submit "変更を保存" %>
+<% end %>
+</div>
+</div>
+</div>
+
 <p>Find me in app/views/admin/genres/edit.html.erb</p>

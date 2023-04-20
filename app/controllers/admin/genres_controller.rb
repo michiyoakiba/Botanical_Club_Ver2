@@ -34,12 +34,6 @@ class Admin::GenresController < ApplicationController
 
   def genre_params
     params.require(:genre).permit(:genre_name)
-  enddef index
   end
 
-  def show
-  end
-
-  def edit
-  end
 end

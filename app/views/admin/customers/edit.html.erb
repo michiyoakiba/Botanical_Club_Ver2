@@ -5,7 +5,7 @@
 <div class="form-group">
 <%= form_with model: [:admin,@customer] do |f| %>
   <div class="row">
-    <div class="col"><label for="Name">氏名</label></div>
+    <div class="col"><label for="Name">氏名</div>
     <div class="col"><%= f.text_field :name, autofocus: true, id:"name", placeholder:"名前", :class=>"form-control name" %></div>
   </div>
   
