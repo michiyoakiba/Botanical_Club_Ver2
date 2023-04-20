@@ -38,14 +38,20 @@
               <% end %>
             </li>
           <% elsif admin_signed_in? %>
-            <li>
-              <%= link_to "Customers", admin_customers_path,class: 'nav-link text-success' %>
+            <li class="nav-item">
+              <%= link_to admin_customers_path, class: 'nav-link text-success' do %>
+              <i class="fas fa-users"></i>Customers
+              <% end %>
             </li>
-            <li>
-              <%= link_to "Genres",  admin_genres_path,class: 'nav-link text-success' %>
+            <li class="nav-item">
+              <%= link_to admin_genres_path, class: 'nav-link text-success' do %>
+              <i class="fab fa-pagelines"></i>Genres
+              <% end %>
             </li>
-            <li>
-              <%= link_to "Log out", destroy_admin_session_path, method: :delete,class: 'nav-link text-success' %>
+            <li class="nav-item">
+              <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-success' do %>
+              <i class="fas fa-sign-out-alt"></i>Log out
+              <% end %>
             </li>
           <% else %>
             <li class="nav-item">
