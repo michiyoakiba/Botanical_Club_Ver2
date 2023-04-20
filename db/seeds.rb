@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create(email: "test@test.com", password: "testtest")
+
+# 管理者サインイン ../admin/sign_in
