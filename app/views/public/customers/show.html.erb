@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row justify-content-around">
+    <div class="col-10">
+      <table class="table table-borderless">
+        
+        <thead>
+          <tr>
+            <th>
+              <h4>image</h4>
+            </th>
+            <th>
+              <h4>name</h4>
+            </th>
+            <th></th>
+          </tr>
+        </thead>  
+        
+        <tbody>
+          <tr>
+      
+            <th><%= link_to public_customers_path do %>
+              <%= image_tag @customer.get_profile_image(70,70), class:"rounded-circle" %>
+                <% end %>
+            </th>
+            <th><%= link_to @customer.name, public_customers_path, class:"text-dark" %></th>
+          <% if @customer == current_customer %>
+            <th><%= link_to "プロフィール編集", edit_public_customer_path(@customer), class:"btn btn-outline-primary" %></th>
+            <th><%= link_to "退会", public_customer_path(@customer), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-outline-danger" %></th>
+          <% end %>
+      
+            <!--<th>-->
+            <!--  <td>-->
+            <!--    % if @customer == current_customer %>-->
+            <!--    % if current_customer.following?(@customer) %>-->
+            <!--      %= link_to 'フォロー外す', customer_relationships_path(@customer.id), method: :delete, class:"btn btn-outline-info" %>-->
+            <!--   % else %>-->
+            <!--      %= link_to 'フォローする', customer_relationships_path(@customer.id), method: :post, class:"btn btn-outline-success" %>-->
+            <!--   % end %>-->
+            <!--    % end %>-->
+            <!--  </td>-->
+            <!--</th>-->
+          
+            <th>follows</th>
+              <!--<td>%= link_to @customer.followings.count, customer_followings_path(@customer) %></td>-->
+            </th>
+            
+            <th>followers
+              <!--<td>%= link_to @customer.followers.count, customer_followers_path(@customer) %></td>-->
+            </th>
+            
+          </tr>  
+       </tbody>
+       
+      </table>
+    </div>
+  </div>
+</div>
+<!--<div>%= render 'plants/list', plants: @plants %></div>-->

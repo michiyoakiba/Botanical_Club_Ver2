@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row justify-center">
+    <div class="mx-auto col-10">  
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th>
+              <h4>image</h4>
+            </th>
+            <th>
+              <h4>name</h4>
+            </th>
+            <th colspan="3"></th>
+          </tr>
+        </thead> 
+        <tbody> 
+          <% customers.each do |customer| %> 
+          <tr>
+           <th><%= link_to public_customer_path(customer) do %>
+                 <%= image_tag customer.get_profile_image(75,75), class:"rounded-circle mg-fluid" %>
+               <% end %>
+           </th>
+           <th><%= link_to customer.name, public_customer_path(customer), class:"text-dark" %></th>
+           <!--<th>フォロー数: %= customer.followings.count %></th>-->
+           <!--<th>フォロワー数: %= customer.followers.count %></t>-->
+           <!--<th>%= render "relationships/btn", customer: customer %></th>-->
+           <!--<th>%= link_to "Users", public_customer_path %></th>-->
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

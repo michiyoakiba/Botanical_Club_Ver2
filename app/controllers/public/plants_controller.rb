@@ -1,5 +1,5 @@
 class Public::PlantsController < ApplicationController
-# before_action :ensure_correct_customer, only: [:update, :destroy] 
+before_action :ensure_correct_customer, only: [:update, :destroy] 
 
   def new
     @plant = Plant.new

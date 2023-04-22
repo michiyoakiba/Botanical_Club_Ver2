@@ -12,25 +12,25 @@
             <ul class="navbar-nav ml-auto">
       
             <% if customer_signed_in? %>
-            <!--<li class="nav-item">-->
-            <!--  %= link_to plants_path, class: 'nav-link text-success' do %>-->
-            <!--  <i class="fas fa-seedling"></i>Posts list-->
-            <!--  % end %>-->
-            <!--</li>-->
-            <!--<li class="nav-item">-->
-            <!--  %= link_to new_plant_path, class: 'nav-link text-success' do %>-->
-            <!--  <i class="fas fa-seedling"></i>Post from-->
-            <!--  % end %>-->
-            <!--</li>-->
             <li class="nav-item">
-              <%= link_to public_about_path, class: 'nav-link text-success' do %>
+              <%= link_to public_plants_path, class: 'nav-link text-success' do %>
+              <i class="fas fa-seedling"></i>Posts list
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_public_plant_path, class: 'nav-link text-success' do %>
+              <i class="fas fa-seedling"></i>Post from
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to public_customers_path, class: 'nav-link text-success' do %>
               <i class="fas fa-users"></i>Users
               <% end %>
             </li>
-            <!--<li class="nav-item">-->
-            <!--  %= link_to public_about_path(current_user.id), class: 'nav-link text-success' do %>-->
-            <!--  <i class="fas fa-user"></i>My page-->
-            <!--  % end %>-->
+            <li class="nav-item">
+              <%= link_to public_customer_path(current_customer.id), class: 'nav-link text-success' do %>
+              <i class="fas fa-user"></i>My page
+              <% end %>
             </li>
             <li class="nav-item">
               <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-success' do %>

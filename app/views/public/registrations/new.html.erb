@@ -6,7 +6,7 @@
         <div class="mx-auto text-center">
             <p>メールアドレスと<br>パスワードを入力してください</p>
             </div>
-        <%= form_with model: @customer, url: new_registration_path do |f| %>
+        <%= form_with model: @customer, url: customer_registration_path do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>    
           <div class="input-group mb-3">
             <div class="input-group-prepend">

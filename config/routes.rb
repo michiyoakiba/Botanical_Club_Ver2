@@ -21,11 +21,9 @@ Rails.application.routes.draw do
   namespace :public do
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :plants, only: [:new, :create, :index, :show, :destroy]
   end
-  
-  
-  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
