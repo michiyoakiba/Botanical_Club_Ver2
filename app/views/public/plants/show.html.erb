@@ -1,0 +1,103 @@
+<div class="text-center"><%= flash[:notice] %></div>
+
+<div class="card-list-container">
+  <div class="card mx-auto mt-4 shadow-lg" style="width: 600px;">
+    <%= link_to plants_path do %>
+      <%= image_tag @plant.get_image, class:"card-img-top img-fluid" %>
+    <% end %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-2">
+          <%= link_to user_path(@plant.user) do %>
+            <%= image_tag @plant.user.get_profile_image(100,100), class:"mt-3 rounded-circle img-fluid"; %></p>
+          <% end %>
+        </div>
+        <div class="col-10">
+          <p class="card-title">
+          <strong><i class="fab fa-envira"></i><span>
+            <%= link_to @plant.plant_name, plants_path, class:"text-dark" %>
+          </span></strong></p>
+             
+          <p class="card-text">説明：<%= @plant.caption %></p>
+          <span><i class="fas fa-user"></i> By 
+            <%= link_to user_path(@plant.user), class:"text-dark" do %>
+              <%= @plant.user.name %>
+            <% end %>
+          ｜ </span>
+          
+          <span><i class="fas fa-calendar"></i> <%= @plant.created_at.strftime('%Y/%m/%d') %> ｜ </span>
+          
+          <i class="fas fa-comment"></i>
+          <!--部分テンプレートにした箇所(コメント機能非同期通信)-->
+          <span class="plant_<%= @plant.id %>"><%= @plant.plant_comments.count %></span> ｜ 
+          
+          <!--部分テンプレートにした箇所(いいね機能非同期通信)-->
+          <span id="favorite_buttons_<%= @plant.id %>">
+            <%= render "favorites/btn", plant: @plant %>
+          </span>
+          
+          <!--非同期通信前の記述-->
+          <!--% if @plant.favorited_by?(current_user) %>-->
+          <!--      <span>-->
+          <!--      %= link_to plant_favorites_path(@plant), method: :delete do %>-->
+          <!--        ♥%= @plant.favorites.count %>-->
+          <!--      % end %>-->
+          <!--% else %>-->
+          <!--      %= link_to plant_favorites_path(@plant), method: :post do %>-->
+          <!--        ♡%= @plant.favorites.count %> -->
+          <!--      % end %>-->
+          <!--% end %>-->
+          
+          <% if @plant.user == current_user %>
+                <span> ｜ <%= link_to "削除", plant_path(@plant), method: :delete, "data-confirm" => "Are you sure you want to delete?" %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="card-title">
+      
+      <!--部分テンプレートにした箇所(コメント機能非同期通信)-->
+      <h4 id="plant_<%= @plant.id %>" class="mx-3"><%= @plant.plant_comments.count %>件コメント</h4>
+    </div>
+    <div id="plant_comments"><%= render "plant_comments/index", plant: @plant %></div>
+    
+    <!--非同期通信前の記述-->
+    <!--% @plant.plant_comments.each do |plant_comment| %>-->
+    <!--<div class="col-2">-->
+    <!--  %= image_tag plant_comment.user.get_profile_image(100,100), class:"mt-3 ml-3 rounded-circle img-fluid"; %>-->
+    <!--</div>-->
+    <!--<div class="col-10">-->
+    <!--  <div class="card-body">-->
+    <!--    <p class="card-title">%= plant_comment.created_at.strftime('%Y/%m/%d') %></p>-->
+    <!--    <p class="card-text">%= plant_comment.comment %></p>-->
+    <!--  % if plant_comment.user == current_user %>   -->
+    <!--    <p class="card-text">-->
+    <!--    %= link_to "削除", plant_plant_comment_path(plant_comment.plant, plant_comment), method: :delete, class: "btn btn-danger pull-right" %> </p>      -->
+    <!--  % end %> -->
+    <!--  </div>-->
+    <!--</div>-->
+    <!--% end %>-->
+    
+    <div class="comments text ml-4">
+      <h5 class="mt-1">コメントする</h5>
+    </div>
+    
+    <!--非同期通信前の記述-->  
+    <!--%= form_with model: [@plant, @plant_comment] do |f| %>-->
+    <!--  <div class="row">-->
+    <!--    <div class="col-11 mx-4 mb-4">-->
+    <!--      %= f.text_area :comment, rows: '5', style: "width:102%",placeholder: "コメントをここに" %>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--  <div class="row">-->
+    <!--    <div class="mx-4 mb-4 btn-text-right">      -->
+    <!--      <p class="text-right">%= f.submit "送信する", class:"btn btn-lg btn-info btn-block-mt-2 float-rigth" %></p>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--% end %>-->
+      
+    <!--部分テンプレートにした箇所(コメント機能非同期通信)-->
+    <%= render "plant_comments/form", plant: @plant, plant_comment: @pkant_comment %>
+  </div> 
+</div>
