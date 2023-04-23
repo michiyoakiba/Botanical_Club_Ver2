@@ -10,12 +10,11 @@ class Admin::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    admin = Admin.find_by(email: params[:admin][:email])
-    if admin.valid_password?(params[:admin][:password])
+    admin = Admin.find_by(email: params[:email])
+    if admin.valid_password?(params[:password])
       sign_in admin
       redirect_to admin_customers_path
     end
-    # super
   end
 
   # DELETE /resource/sign_out
@@ -23,11 +22,11 @@ class Admin::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
 
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
-  # end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

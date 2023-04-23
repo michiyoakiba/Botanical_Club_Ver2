@@ -10,14 +10,27 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # def after_sign_out_path_for(resource)
+  #   pp resource
+  #   if resource == :admin
+  #     new_admin_session_path
+  #   else
+  #     root_path
+  #   end
+  # end
+  
+  
   def after_sign_out_path_for(resource)
-    pp resource
-    if resource == :admin
+    case resource
+    when :admin   # ログアウト時はシンボルが返ってくる
       new_admin_session_path
-    else
+    when :customer  # ログアウト時はシンボルが返ってくる
       root_path
     end
   end
+  
+  
+  
   
   protected
 
