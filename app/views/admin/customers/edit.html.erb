@@ -1,19 +1,58 @@
 <div class="container">
-  <h1 class="my-3 ml-3"><%= @customer.name %>さんの会員情報編集</h1>
-<div class="row">
+  <div class="row">
+   <h3 class="my-4 ml-4 mt-8">Delete <strong><%= @customer.name %></strong>'s member information</h3>
+    <div class="col-10 mt-3 mx-auto">
+    　<table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 10%">Name</th>
+            <th scope="col" style="width: 10%">Email</th>
+            <th scope="col" style="width: 10%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @customer.name %></td>
+            <td><%= @customer.email %></td>
+            <td><%= link_to "Destry", admin_customer_path(@customer), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-danger" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> 
+</div> 
 
-<div class="form-group">
-<%= form_with model: [:admin,@customer] do |f| %>
-  <div class="row">
-    <div class="col"><label for="Name">氏名</div>
-    <div class="col"><%= f.text_field :name, autofocus: true, id:"name", placeholder:"名前", :class=>"form-control name" %></div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container">-->
+<!--  <h1 class="my-3 ml-3"><%#= @customer.name %>さんの会員情報編集</h1>-->
+<!--<div class="row">-->
+
+<!--<div class="form-group">-->
+<!--<%#= form_with model: [:admin,@customer] do |f| %>-->
+<!--  <div class="row">-->
+<!--    <div class="col"><label for="Name">氏名</div>-->
+<!--    <div class="col"><%#= f.text_field :name, autofocus: true, id:"name", placeholder:"名前", :class=>"form-control name" %></div>-->
+<!--  </div>-->
   
-  <div class="row">
-    <div class="col"><label for="メールアドレス">メールアドレス</label></div>
-    <div class="col"><%= f.text_field :email, autofocus: true, id:"メールアドレス", placeholder:"sample@example.com", :class=>"form-control" %></div>
-    <div class="col"></div>
-  </div>
+<!--  <div class="row">-->
+<!--    <div class="col"><label for="メールアドレス">メールアドレス</label></div>-->
+<!--    <div class="col"><%#= f.text_field :email, autofocus: true, id:"メールアドレス", placeholder:"sample@example.com", :class=>"form-control" %></div>-->
+<!--    <div class="col"></div>-->
+<!--  </div>-->
   <!--<div class="row">-->
   <!--  <div class="col"><label for="会員ステータス">会員ステータス</label></div>-->
   <!--  <div class="col">-->
@@ -23,9 +62,9 @@
   <!--                   %= f.label :is_deleted, "退会", {value: :true} %></div>-->
 
   <!--  <div class="col"></div>-->
-  </div>
-<%= f.submit "変更を保存" %>
-<% end %>
-</div>
-</div>
-</div>
+<!--  </div>-->
+<!--<%#= f.submit "変更を保存" %>-->
+<!--<%# end %>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

@@ -1,21 +1,27 @@
 <div class="container">
-<h2 class="my-3 ml-3"><%= @customer.name %>さんの会員詳細</h2>
-<dl class="row">
-  <dt class="col-2">会員ID</dt>
-  <dd class="col-10"><%= @customer.id%></dd>
-  <dt class="col-2">氏名</dt>
-   <dd class="col-10"><%= @customer.name%></dd>
-  
-  <dt class="col-2">メールアドレス</dt>
-   <dd class="col-10"><%= @customer.email %></dd>
-  <!--<dt class="col-2">会員ステータス</dt>-->
-  <!--    % if @customers.is_deleted == false %>-->
-  <!--    <dd class="col-10 text-success">有効</dd>-->
-  <!--    % else %>-->
-  <!--    <dd class="col-10 text-secondary">退会</dd>-->
-  <!--    % end %>-->
- </dl>
- <div class="row">
-  <div class="col-2"></div>
-  <div class="col-2"><%= link_to "編集する", edit_admin_customer_path(@customer),class: 'btn btn-success' %></div>
- </div>
+  <div class="row">
+   <h3 class="my-4 ml-4 mt-8"><strong><%= @customer.name %></strong>'s member details</h3>
+    <div class="col-10 mt-3 mx-auto">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 10%">Member ID</th>
+            <th scope="col" style="width: 10%">Name</th>
+            <th scope="col" style="width: 10%">Email</th>
+            <th scope="col" style="width: 10%"></th>
+            <th scope="col" style="width: 10%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @customer.id %></td>
+            <td><%= @customer.name %></td>
+            <td><%= @customer.email %></td>
+            <td><%= link_to "Customers", admin_customers_path(@customer),class: "btn btn-info" %></td>
+            <td><%= link_to "To edit", edit_admin_customer_path(@customer),class: "btn btn-success" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> 
+</div> 
