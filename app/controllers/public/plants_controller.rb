@@ -10,7 +10,7 @@ before_action :ensure_correct_customer, only: [:update, :destroy]
     @plant.customer_id = current_customer.id
     if @plant.save
        flash[:notice] = "You have created plant successfully."  
-       redirect_to public_plant_path
+       redirect_to public_plants_path
     else
        render :new
     end  

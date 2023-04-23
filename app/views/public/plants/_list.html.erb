@@ -3,20 +3,20 @@
   <% plants.each do |plant| %>
     <div class="col-ms-auto">
       <div class="card mx-1 mt-1 shadow-lg" style="width: 370px;">
-      <!--%= link_to plant_path(plant.id) do %>-->
+      <%= link_to public_plant_path(plant.id) do %>
         <%= image_tag plant.get_image, class:"card-img-top img-fluid" %> 
-      <!--% end %>-->
+      <% end %>
       <div class="card-body">
         <div class="row">
         <div class="col-2">
-          <%= link_to user_path(plant.user) do %>
-            <%= image_tag plant.user.get_profile_image(100,100), class:"mt-3 rounded-circle img-fluid" %></p>
+          <%= link_to public_customers_path(plant.customer) do %>
+            <%= image_tag plant.customer.get_profile_image(100,100), class:"mt-3 rounded-circle img-fluid" %></p>
           <% end %>
         </div>
         <div class="col-10">
           <p class="card-title">
           <strong><i class="fab fa-envira"></i><span>
-            <%= link_to plant_path(plant.id), class:"text-dark" do %>
+            <%= link_to public_plant_path(plant.id), class:"text-dark" do %>
               <%= plant.plant_name %>
             <% end %> 
           </span></strong>
@@ -25,16 +25,16 @@
           <p class="card-text">説明：<%= plant.caption %></p>
         
           <span><i class="fas fa-user"></i> By 
-            <%= link_to user_path(plant.user), class:"text-dark" do %>
-              <%= plant.user.name %>
+            <%= link_to public_customers_path(plant.customer), class:"text-dark" do %>
+              <%= plant.customer.name %>
             <% end %>
           ｜ </span>
           
-          <span><%= link_to "#{plant.plant_comments.count} コメント", plant_path(plant.id) %>｜</span>
+          <!--<span><%#= link_to "#{plant.plant_comments.count} コメント", plant_path(plant.id) %>｜</span>-->
     
           <!--部分テンプレートにした箇所(部分的に更新したい箇所)-->
-          <span id="favorite_buttons_<%= plant.id %>">
-            <%= render "favorites/btn", plant: plant %></span>
+          <!--<span id="favorite_buttons_<%#= plant.id %>">-->
+          <!--  <%#= render "favorites/btn", plant: plant %></span>-->
     
     <!--% if plant.favorited_by?(current_user) %>-->
     <!--    %= link_to plant_favorites_path(plant), method: :delete do %>-->
