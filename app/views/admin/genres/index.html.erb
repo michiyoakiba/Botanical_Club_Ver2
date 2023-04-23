@@ -1,43 +1,41 @@
 <div class="container">
-<div class="row">
-<h2 class="my-4 ml-4 mt-10">Genres</h2>
-<div class="col-7 mt-5 mx-auto">
-<%= form_with model: [:admin,@genre] do |f| %>
-
-  <% if @genre.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@genre.errors.count, "error") %> prohibited this obj from being saved:</h3>
-      <ul>
-        <% @genre.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <div class="row">
+    <h2 class="my-4 ml-4 mt-10">Genres</h2>
+      <div class="col-7 mt-5 mx-auto">
+      <%= form_with model: [:admin,@genre] do |f| %>
+        <% if @genre.errors.any? %>
+          <div id="error_explanation">
+            <h3><%= pluralize(@genre.errors.count, "error") %> prohibited this obj from being saved:</h3>
+            <ul>
+              <% @genre.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+          <%= f.text_field :genre_name, autofocus: true, id:"name", placeholder:"ジャンル名" %>
+          <%= f.submit '新規登録', class:"btn btn-success" %>
+      <% end %>
+      </div>
+      <div class="col-6 mt-4 mx-auto">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 6%">Genre</th>
+              <th scope="col" style="width: 6%"></th>
+              <th scope="col" style="width: 10%"></th>
+            </tr>
+          </thead>
+        <% @genres.each do |genre| %>
+          <tbody>
+            <tr>
+              <td><strong><%= genre.genre_name %></strong></td>
+              <td><%= link_to "編集",edit_admin_genre_path(genre), class:"btn btn-info" %></td>
+              <td><%= link_to "削除", admin_genre_path(genre), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-danger" %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
     </div>
-  <% end %>
-<%= f.text_field :genre_name, autofocus: true, id:"name", placeholder:"ジャンル名" %>
-<%= f.submit '新規登録', class:"btn btn-success" %>
-<% end %>
-</div>
-
-<div class="col-6 mt-4 mx-auto">
-<table class="table table-borderless">
-  <thead>
-    <tr>
-      <th scope="col" style="width: 6%">Genre</th>
-      <th scope="col" style="width: 6%"></th>
-      <th scope="col" style="width: 10%"></th>
-    </tr>
-  </thead>
-  <% @genres.each do |genre| %>
-  <tbody>
-    <tr>
-      <td><strong><%= genre.genre_name %></strong></td>
-      <td><%= link_to "編集",edit_admin_genre_path(genre), class:"btn btn-info" %></td>
-      <td><%= link_to "削除", admin_genre_path(genre), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-danger" %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
-</div>
-</div>
+  </div>
 </div>

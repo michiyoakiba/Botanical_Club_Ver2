@@ -1,12 +1,11 @@
 <div class="container">
-<div class="row">
-<h2 class="my-4 ml-4 mt-10">Genre editing</h2>
-<div class="col-8 mt-5 mx-auto">
-<%= form_with model: [:admin,@genre] do |f| %>
-  <label for="Name">Genre name</label>
-  <%= f.text_field :genre_name, autofocus: true, id:"name", placeholder:"ジャンル名" %>
-  <%= f.submit "変更保存", class:"btn btn-success" %>
-<% end %>
-</div>
-</div>
+  <div class="row">
+    <h2 class="my-4 ml-4 mt-10">Genre editing</h2>
+      <div class="col-8 mt-5 mx-auto">
+      <%= form_with model: [:admin,@genre] do |f| %>
+        <%= f.text_field :genre_name, autofocus: true, id:"name", placeholder:"ジャンル名" %>
+        <%= f.submit "変更を保存", class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
 </div>
