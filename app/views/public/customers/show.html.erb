@@ -25,7 +25,7 @@
             <th><%= link_to @customer.name, public_customers_path, class:"text-dark" %></th>
           <% if @customer == current_customer %>
             <th><%= link_to "プロフィール編集", edit_public_customer_path(@customer), class:"btn btn-outline-primary" %></th>
-            <th><%= link_to "退会", public_customer_path(@customer), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-outline-danger" %></th>
+            <!--<th>%= link_to "退会", public_customer_path(@customer), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-outline-danger" %></th>-->
           <% end %>
       
             <!--<th>-->
