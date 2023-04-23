@@ -1,0 +1,19 @@
+<div class="card mx-4 mb-4">
+  <% @plant.plant_comments.each do |plant_comment| %>
+    <div class="row">
+      <div class="col-2">
+        <%= image_tag plant_comment.customer.get_profile_image(100,100), class:"mt-3 ml-3 rounded-circle img-fluid" %>
+      </div>
+      <div class="col-10">
+        <div class="card-body">
+          <p class="card-title"><%= plant_comment.created_at.strftime('%Y/%m/%d') %></p>
+            <p class="card-text"><%= plant_comment.comment %></p>
+          <% if plant_comment.customer == current_customer %>   
+            <p class="card-text">
+            <%= link_to "削除", plant_plant_comment_path(plant_comment.plant, plant_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %></p>      
+          <% end %> 
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<%= form_with model: [:public,@plant],local: false do |f| %>
+  <div class="row">
+    <div class="col-11 mx-4 mb-4">
+      <%= f.text_area :comment, rows: '5', style: "width:101%",placeholder: "コメントをここに" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mx-4 mb-4 btn-text-right">      
+      <p class="text-right"><%= f.submit "送信する", class:"btn btn-lg btn-info btn-block-mt-2 float-rigth" %></p>
+    </div>
+  </div>
+<% end %>

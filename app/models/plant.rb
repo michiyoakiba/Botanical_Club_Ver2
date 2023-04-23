@@ -16,8 +16,8 @@ class Plant < ApplicationRecord
      image
   end
   
-  def favorited_by?(user)
-    favorites.exists?(user_id: user.id)
+  def favorited_by?(customer)
+    favorites.exists?(customer_id: customer.id)
   end
   
   

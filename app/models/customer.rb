@@ -26,16 +26,16 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  def follow(user)
-    relationships.create(followed_id: user.id)
+  def follow(customer)
+    relationships.create(followed_id: customer.id)
   end
 
-  def unfollow(user)
-    relationships.find_by(followed_id: user.id).destroy
+  def unfollow(customer)
+    relationships.find_by(followed_id: customer.id).destroy
   end
 
-  def following?(user)
-    followings.include?(user)
+  def following?(customer)
+    followings.include?(customer)
   end
   
 

@@ -2,26 +2,26 @@
 
 <div class="card-list-container">
   <div class="card mx-auto mt-4 shadow-lg" style="width: 600px;">
-    <%= link_to plants_path do %>
+    <%= link_to public_plants_path do %>
       <%= image_tag @plant.get_image, class:"card-img-top img-fluid" %>
     <% end %>
     <div class="card-body">
       <div class="row">
         <div class="col-2">
-          <%= link_to user_path(@plant.user) do %>
-            <%= image_tag @plant.user.get_profile_image(100,100), class:"mt-3 rounded-circle img-fluid"; %></p>
+          <%= link_to public_customers_path(@plant.customer) do %>
+            <%= image_tag @plant.customer.get_profile_image(100,100), class:"mt-3 rounded-circle img-fluid"; %></p>
           <% end %>
         </div>
         <div class="col-10">
           <p class="card-title">
           <strong><i class="fab fa-envira"></i><span>
-            <%= link_to @plant.plant_name, plants_path, class:"text-dark" %>
+            <%= link_to @plant.plant_name, public_plants_path, class:"text-dark" %>
           </span></strong></p>
              
           <p class="card-text">説明：<%= @plant.caption %></p>
           <span><i class="fas fa-user"></i> By 
-            <%= link_to user_path(@plant.user), class:"text-dark" do %>
-              <%= @plant.user.name %>
+            <%= link_to public_customers_path(@plant.customer), class:"text-dark" do %>
+              <%= @plant.customer.name %>
             <% end %>
           ｜ </span>
           
@@ -33,7 +33,7 @@
           
           <!--部分テンプレートにした箇所(いいね機能非同期通信)-->
           <span id="favorite_buttons_<%= @plant.id %>">
-            <%= render "favorites/btn", plant: @plant %>
+            <%= render "public/favorites/btn", plant: @plant %>
           </span>
           
           <!--非同期通信前の記述-->
@@ -48,8 +48,8 @@
           <!--      % end %>-->
           <!--% end %>-->
           
-          <% if @plant.user == current_user %>
-                <span> ｜ <%= link_to "削除", plant_path(@plant), method: :delete, "data-confirm" => "Are you sure you want to delete?" %></span>
+          <% if @plant.customer == current_customer %>
+                <span> ｜ <%= link_to "削除", public_plant_path(@plant), method: :delete, "data-confirm" => "Are you sure you want to delete?" %></span>
           <% end %>
         </div>
       </div>
@@ -60,7 +60,7 @@
       <!--部分テンプレートにした箇所(コメント機能非同期通信)-->
       <h4 id="plant_<%= @plant.id %>" class="mx-3"><%= @plant.plant_comments.count %>件コメント</h4>
     </div>
-    <div id="plant_comments"><%= render "plant_comments/index", plant: @plant %></div>
+    <div id="plant_comments"><%= render "public/plant_comments/index", plant: @plant %></div>
     
     <!--非同期通信前の記述-->
     <!--% @plant.plant_comments.each do |plant_comment| %>-->
@@ -98,6 +98,6 @@
     <!--% end %>-->
       
     <!--部分テンプレートにした箇所(コメント機能非同期通信)-->
-    <%= render "plant_comments/form", plant: @plant, plant_comment: @pkant_comment %>
+    <%= render "public/plant_comments/form", plant: @plant, plant_comment: @pkant_comment %>
   </div> 
 </div>

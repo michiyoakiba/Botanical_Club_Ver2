@@ -1,0 +1,2 @@
+$('#favorite_buttons_<%= @plant.id %>').html("<%= j(render "public/favorites/btn", plant: @plant) %>");
+                                                  <!--controllerも@plantのため plant => @plant->
