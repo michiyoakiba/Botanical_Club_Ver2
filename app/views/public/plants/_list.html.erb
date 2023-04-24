@@ -4,8 +4,8 @@
   <%= render 'genre', genres: @genres %>
     
   <% plants.each do |plant| %>
-     <div class="col-6">  
-      <div class="card mx-1 mt-1 shadow-lg" style="width: 300px;">
+     <div class="row" "col-8" "ml-3">  
+      <div class="card mx-3 mt-3 shadow-lg" style="width: 310px;">
       <%= link_to public_plant_path(plant.id) do %>
         <%= image_tag plant.get_image, class:"card-img-top img-fluid" %> 
       <% end %>
@@ -32,7 +32,7 @@
           ｜ </span>
           
           <!--<span><%#= link_to "#{plant.plant_comments.count} コメント", public_plant_path(plant.id) %>｜</span>-->
-          <span><%= link_to plant.plant_comments.count, public_plant_path(plant.id) %>｜</span>
+          <!--<span><%#= link_to plant.plant_comments.count, public_plant_path(plant.id) %>｜</span>-->
         
     
           <!--部分テンプレートにした箇所(部分的に更新したい箇所)-->
