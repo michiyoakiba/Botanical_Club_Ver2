@@ -4,32 +4,32 @@
 　　　<div class="col-10 mx-auto">
 　　　　<table class="table table-borderless">
   　　　　　　<thead>
-    　　　　　<tr>
-      　　　　<th scope="col" style="width: 10%">Member ID</th>
-      　　　　<th scope="col" style="width: 15%">Name</th>
-      　　　　<th scope="col" style="width: 15%">Email</th>
-      　　　　<th scope="col" style="width: 10%">Status</th>
-    　　　　</tr>
-  　　　　</thead>
-  　　  　<% @customers.each do |customer| %>
-  　　　　<tbody>
-    　　　　<tr>
-      　　　　<td><%= customer.id %></td>
-      　　　　<td><%= link_to admin_customer_path(customer.id) do %></td>
-        　　<td><%= customer.name %></td>
-      　　　　<td><%= customer.email %></td>
+    　　　  　　<tr>
+      　　　   　<th scope="col" style="width: 10%">Member ID</th>
+      　　　   　<th scope="col" style="width: 15%">Name</th>
+      　　　   　<th scope="col" style="width: 15%">Email</th>
+      　　　   　<th scope="col" style="width: 10%">Status</th>
+    　　　   　</tr>
+  　　    　</thead>
+            <% @customers.each do |customer| %>
+          <tbody>
+            <tr>
+              <td><%= customer.id %></td>
+              <td><%= link_to customer.name, admin_customer_path(customer.id) %></td>
+              <td><%= customer.email %></td>
+              
       <!--退会ステータス条件分岐-->
-        <!--<%# if customer.is_deleted == false %>-->
-        <!--  <td class="text-success">有効</td>-->
-        <!--<%# else %>-->
-        <!--  <td class="text-secondary">退会</td>-->
-        <!--  <%# end %>-->
-  
-    　　　　</tr>
-  　　　　</tbody>
-        <% end %>
-      </table>
-      <div class="row justify-content-center"><%= paginate @customers %></div>
+         <!-- % if customer.is_deleted == false %>-->
+         <!-- <td class="text-success">有効</td>-->
+         <!-- % else %>-->
+         <!-- <td class="text-secondary">退会</td>-->
+         <!--% end %>-->
+         
+            </tr>
+          </tbody>
+            <% end %>
+        </table>
+        <div class="row justify-content-center"><%= paginate @customers %></div>
       </div>
     </div>
 </div>
