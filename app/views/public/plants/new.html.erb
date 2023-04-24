@@ -14,24 +14,15 @@
           </ul>
         <% end %>
         <%= form_with model: [:public,@plant] do |f| %>
-        
-    <!--    <div class="form-group">-->
-    <!--<div class="offset-1"><%#= f.label "ジャンル" %></div>-->
-      <%#= f.collection_select :genre_id, Genre.all, :genre_name, { prompt: '--選択してください--' }, class: "form-control border-dark", style: "background-color:#fcfced" %>
-    <!--</div>-->
-    <!--</div>-->
-    
-  <!--   <div class="form-group">-->
-  <!--  <%#= f.label :'ジャンル' %>-->
-  <!--    <label><%#= f.collection_select(:genre_id, :genre_name) %></label>-->
-  <!--</div>-->
-    
-        
           <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+          <div class="form-group mt-4">
+            <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, { prompt: '--ジャンル--' }, class: "form-control" %>
+          </div>
           <div class="input-group mb-3 mt-4">
             <div class="input-group-prepend">
               <span class="input-group-text" aria-hidden="true"><i class="fas fa-leaf"></i></span>
             </div>
+            
             <%= f.text_field :plant_name, class:"form-control", placeholder:"植物名" %>
           </div>
           <%= f.text_area :caption, class:"form-control", rows:"3", placeholder:"コメントここに" %>
