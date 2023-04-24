@@ -28,7 +28,6 @@ before_action :ensure_correct_customer, only: [:update, :destroy]
   def show
     @plant = Plant.find(params[:id])
     @plant_comment = PlantComment.new
-    @genres = Genre.all
   end
   
   def destroy
