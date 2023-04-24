@@ -17,12 +17,14 @@ before_action :ensure_correct_customer, only: [:update, :destroy]
   end
   
   def index
-    @plants = Plant.order(created_at: :desc).page(params[:page])
+    @plants = Plant.order(created_at: :desc).page(params[:page]).per(3)
+    @genres = Genre.all
   end
 
   def show
     @plant = Plant.find(params[:id])
     @plant_comment = PlantComment.new
+    @genres = Genre.all
   end
   
   def destroy
@@ -35,7 +37,7 @@ before_action :ensure_correct_customer, only: [:update, :destroy]
   private
 
   def plant_params
-    params.require(:plant).permit(:plant_name, :image, :caption)
+    params.require(:plant).permit(:plant_name, :image, :caption, :genre_id)
   end
   
   def ensure_correct_customer
