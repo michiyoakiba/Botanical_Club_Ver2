@@ -2,6 +2,7 @@ class Plant < ApplicationRecord
     
   has_one_attached :image
   belongs_to :customer
+  belongs_to :genre
   has_many :plant_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   

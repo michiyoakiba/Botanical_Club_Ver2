@@ -17,7 +17,11 @@ before_action :ensure_correct_customer, only: [:update, :destroy]
   end
   
   def index
-    @plants = Plant.order(created_at: :desc).page(params[:page]).per(3)
+    if params[:genre_id].present?
+      @plants = Plant.where(genre_id: params[:genre_id]).order(created_at: :desc).page(params[:page]).per(3)
+    else
+      @plants = Plant.order(created_at: :desc).page(params[:page]).per(3)
+    end  
     @genres = Genre.all
   end
 
