@@ -8,7 +8,7 @@
   <% @genres.each do |genre| %>
     <tbody>
       <tr>
-        <td><%= link_to genre.genre_name, public_plants_path(genre_id: genre.id) %></td>
+        <td><%= link_to genre.genre_name, public_plants_path(genre_id: genre.id), class: "text-dark" %></td>
       </tr>
     </tbody>
   <% end %>
