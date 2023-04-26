@@ -20,7 +20,7 @@
               
       <!--退会ステータス条件分岐-->
           <% if customer.is_deleted == false %>
-            <td class="text-success">有効</td>
+            <td class="text-danger">有効</td>
           <% else %>
             <td class="text-secondary">退会</td>
           <% end %>

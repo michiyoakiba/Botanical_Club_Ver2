@@ -1,7 +1,7 @@
 <div class= "ml-5">
   <h2>Followed User</h2>
   <% if @customers.exists? %>
-    <%= render '/customers/list', cusromers: @customers %> 
+    <%= render 'public/customers/list', customers: @customers %> 
   <% else %>
     <p>There are no users</p>
     <strong><%= link_to "Users", public_customers_path %></strong>
