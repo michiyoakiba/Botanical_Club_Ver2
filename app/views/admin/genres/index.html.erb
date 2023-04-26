@@ -30,7 +30,7 @@
           <tbody>
             <tr>
               <td><strong><%= genre.genre_name %></strong></td>
-              <td><%= link_to "編集",edit_admin_genre_path(genre), class:"btn btn-info" %></td>
+              <td><%= link_to "編集",edit_admin_genre_path(genre), class:"btn btn-primary" %></td>
               <td><%= link_to "削除", admin_genre_path(genre), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-danger" %></td>
             </tr>
           </tbody>
