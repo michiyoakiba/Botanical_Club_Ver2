@@ -21,10 +21,10 @@
                <% end %>
            </th>
            <th><%= link_to customer.name, public_customer_path(customer), class:"text-dark" %></th>
-           <!--<th>フォロー数: %= customer.followings.count %></th>-->
-           <!--<th>フォロワー数: %= customer.followers.count %></t>-->
-           <!--<th>%= render "relationships/btn", customer: customer %></th>-->
-           <!--<th>%= link_to "Users", public_customer_path %></th>-->
+           <th>フォロー数: <%= customer.followings.count %></th>
+           <th>フォロワー数: <%= customer.followers.count %></t>
+           <th><%= render "public/relationships/btn", customer: customer %></th>
+           <th><%= link_to "Users", public_customers_path %></th>
           </tr>
           <% end %>
         </tbody>
