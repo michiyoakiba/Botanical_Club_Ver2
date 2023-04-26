@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   namespace :public do
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdrawal' => 'customers#withdrawal'
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :plants, only: [:new, :create, :index, :show, :destroy]
     resource :favorites, only: [:create, :destroy]  
     resources :plant_comments, only: [:create, :destroy]

@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  before_action :is_matching_login_customers, only: [:edit, :update, :destroy]
+  before_action :is_matching_login_customer, only: [:edit, :update, :destroy]
   
   def index
     @customer = current_customer
@@ -18,13 +18,17 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customers_params)
-    redirect_to customers_path(@customer.id)
+    redirect_to public_customer_path(@customer.id)
   end
   
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy
     redirect_to root_path
+  end
+  
+  def unsubscribe
+    @customer = current_customer
   end
   
   def withdrawal
@@ -42,9 +46,9 @@ class Public::CustomersController < ApplicationController
   end
   
   def is_matching_login_customer
-    　customers_id = params[:id].to_i
+    customer_id = params[:id].to_i
     unless customer_id == current_customer.id
-      redirect_to plants_path
+      redirect_to public_plants_path
     end
   end
   
