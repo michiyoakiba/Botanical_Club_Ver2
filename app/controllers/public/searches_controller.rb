@@ -7,7 +7,7 @@ class Public::SearchesController < ApplicationController
 		if @model == 'customer'
 			@records = Customer.search_for(@content, @method)
 		else
-			@records = Plant.search_for(@content, @method).page(params[:page])
+			@records = Plant.search_for(@content, @method).page(params[:page]).per(3)
 		end
   end
   
