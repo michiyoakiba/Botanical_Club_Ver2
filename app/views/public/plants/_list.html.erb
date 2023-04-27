@@ -26,8 +26,8 @@
             <!--｜ </span>-->
             
             <!--｜ <span><%#= plant.genre.genre_name %></span>｜ -->
-              <span><i class="fas fa-comment comment_blue" style = "color:#528fff"></i>
-              <%= link_to plant.plant_comments.count, public_plant_path(plant.id) %>｜</span>
+              <span><i class="fas fa-comment"></i>
+              <%= link_to plant.plant_comments.count, public_plant_path(plant.id), class: "text-dark" %>｜</span>
             <!--部分テンプレートにした箇所(部分的に更新したい箇所)-->
               <span id="favorite_buttons_<%= plant.id %>">
               <%= render "public/favorites/btn", plant: plant %></span>
