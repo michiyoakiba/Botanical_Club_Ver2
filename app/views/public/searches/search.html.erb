@@ -1,0 +1,9 @@
+<div class= "ml-5">
+  <% if @model == 'customer' %>
+    <h3>Customers search for "<%= @content %>"</h3>
+      <%= render 'public/customers/list', customers: @records %>
+  <% elsif @model == 'plant' %>
+	<h3>Plants search for "<%= @content %>"</h3>
+      <%= render 'public/plants/list', plants: @records %>
+  <% end %>
+</div>

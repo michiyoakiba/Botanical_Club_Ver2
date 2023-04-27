@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :public do
     get '/' => 'homes#top'
     get '/about' => 'homes#about'
+    get "search" => "searches#search"
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdrawal' => 'customers#withdrawal'
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
