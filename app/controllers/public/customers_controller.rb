@@ -18,6 +18,7 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customers_params)
+    flash[:notice] = "You have updated user successfully."
     redirect_to public_customer_path(@customer.id)
   end
   
