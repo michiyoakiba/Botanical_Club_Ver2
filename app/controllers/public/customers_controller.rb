@@ -8,7 +8,7 @@ class Public::CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
-    @plants = @customer.plants.order(created_at: :desc).page(params[:page]).per(4)
+    @plants = @customer.plants.order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def edit

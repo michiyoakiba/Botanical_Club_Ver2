@@ -1,5 +1,12 @@
 <div class="text-center"><%= flash[:notice] %></div>
-  
-    <%= render 'genre', genres: @genres %>
-
-    <%= render 'list', plants: @plants %>
+<div class="container">
+    <div class="row">
+        <div class="col-2"> 
+            <%= render 'genre', genres: @genres %>
+        </div>
+        <div class="col-10"> 
+            <%= render 'list', plants: @plants %>
+        </div>
+    </div>
+</div>
+    
