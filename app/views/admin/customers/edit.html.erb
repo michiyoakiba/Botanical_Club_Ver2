@@ -14,7 +14,7 @@
           <tr>
             <td><%= @customer.name %></td>
             <td><%= @customer.email %></td>
-            <td><%= link_to "Forced withdrawal", admin_customer_path(@customer), method: :delete, "data-confirm" => "強制退会しますか?", class:"btn btn-danger" %></td>
+            <td><%= link_to "強制退会する", admin_customer_path(@customer), method: :delete, "data-confirm" => "強制退会しますか?", class:"btn btn-danger" %></td>
           </tr>
         </tbody>
       </table>

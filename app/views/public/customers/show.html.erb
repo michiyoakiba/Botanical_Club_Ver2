@@ -1,3 +1,5 @@
+<div class="text-center"><%= flash[:notice] %></div>
+
 <div class="container">
   <div class="row justify-content-around">
     <div class="col-10">
@@ -55,4 +57,4 @@
     </div>
   </div>
 </div>
-<!--<div>%= render 'plants/list', plants: @plants %></div>-->
+<div><%= render 'public/plants/list', plants: @plants %></div>

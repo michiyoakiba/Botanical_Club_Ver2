@@ -1,16 +1,20 @@
-<div class="col-2 mt-3">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th class="text-center text-success">Genre</th>
-      </tr>
-    </thead>
-  <% @genres.each do |genre| %>
-    <tbody>
-      <tr>
-        <td><%= link_to genre.genre_name, public_plants_path(genre_id: genre.id), class: "text-dark" %></td>
-      </tr>
-    </tbody>
-  <% end %>
-  </table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2 mt-1">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center text-success">Genre</th>
+          </tr>
+        </thead>
+      <% @genres.each do |genre| %>
+        <tbody>
+          <tr>
+            <td><%= link_to genre.genre_name, public_plants_path(genre_id: genre.id), class: "text-dark" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+      </table>
+    </div>
+  </div>
 </div>
