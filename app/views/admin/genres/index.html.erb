@@ -1,3 +1,5 @@
+<div class="text-center"><%= flash[:notice] %></div>
+
 <div class="container">
   <div class="row">
     <h2 class="my-4 ml-4 mt-10">Genres</h2>
@@ -14,7 +16,7 @@
           </div>
         <% end %>
           <%= f.text_field :genre_name, autofocus: true, id:"name", placeholder:"ジャンル名" %>
-          <%= f.submit '新規登録', class:"btn btn-success" %>
+          <%= f.submit 'Create', class:"btn btn-success" %>
       <% end %>
       </div>
       <div class="col-6 mt-4 mx-auto">
@@ -30,8 +32,8 @@
           <tbody>
             <tr>
               <td><strong><%= genre.genre_name %></strong></td>
-              <td><%= link_to "編集",edit_admin_genre_path(genre), class:"btn btn-primary" %></td>
-              <td><%= link_to "削除", admin_genre_path(genre), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-danger" %></td>
+              <td><%= link_to "Update",edit_admin_genre_path(genre), class:"btn btn-primary" %></td>
+              <td><%= link_to "Destroy", admin_genre_path(genre), method: :delete, "data-confirm" => "Are you sure you want to delete?", class:"btn btn-danger" %></td>
             </tr>
           </tbody>
         <% end %>

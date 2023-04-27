@@ -4,7 +4,7 @@
       <div class="col-8 mt-5 mx-auto">
       <%= form_with model: [:admin,@genre] do |f| %>
         <%= f.text_field :genre_name, autofocus: true, id:"name", placeholder:"ジャンル名" %>
-        <%= f.submit "変更を保存", class:"btn btn-success" %>
+        <%= f.submit "Save edits", class:"btn btn-success" %>
       <% end %>
     </div>
   </div>

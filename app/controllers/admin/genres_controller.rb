@@ -8,7 +8,7 @@ class Admin::GenresController < ApplicationController
   def create
      @genre = Genre.new(genre_params)
     if @genre.save
-       flash[:notice] = "successfully"
+       flash[:notice] = "You have created genre successfully"
        redirect_to admin_genres_path
     else
        @genres = Genre.all
@@ -23,7 +23,7 @@ class Admin::GenresController < ApplicationController
   def update
     @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
-       flash[:notice] = "successfully"
+       flash[:notice] = "You have updated genre successfully."
        redirect_to admin_genres_path
     else
        render :edit
