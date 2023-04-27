@@ -17,7 +17,7 @@
           <% customers.each do |customer| %> 
           <tr>
            <th><%= link_to public_customer_path(customer) do %>
-                 <%= image_tag customer.get_profile_image(75,75), class:"rounded-circle mg-fluid" %>
+                 <%= image_tag customer.get_profile_image(75,75), class:"rounded-circle img-fluid" %>
                <% end %>
            </th>
            <th><%= link_to customer.name, public_customer_path(customer), class:"text-dark" %></th>
