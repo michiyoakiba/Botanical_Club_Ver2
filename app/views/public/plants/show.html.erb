@@ -16,7 +16,9 @@
           <p class="card-title">
           <strong><i class="fab fa-envira"></i><span>
             <%= link_to @plant.plant_name, public_plants_path, class:"text-dark" %>
-          </span></strong></p>
+          </span></strong>
+          ｜ <span>ジャンル：<%= @plant.genre.genre_name %></span>
+          </p>
              
           <p class="card-text">説明：<%= @plant.caption %></p>
           <span><i class="fas fa-user"></i> By 
