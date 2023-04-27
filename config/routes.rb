@@ -24,13 +24,17 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdrawal' => 'customers#withdrawal'
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
-    resources :plants, only: [:new, :create, :index, :show, :destroy]
-    resource :favorites, only: [:create, :destroy]  
-    resources :plant_comments, only: [:create, :destroy]
-    resource :relationships, only: [:create, :destroy]
-  	get '/followings/:customer_id' => 'relationships#followings', as: 'followings'
-  	get '/followers/:customer_id' => 'relationships#followers', as: 'followers'
+    
+    resources :plants, only: [:new, :create, :index, :show, :destroy] do
+      resource :favorites, only: [:create, :destroy] 
+      resources :plant_comments, only: [:create, :destroy]
+    end
+  
+    resources :customers, only: [:index, :show, :edit, :update, :destroy] do
+      resource :relationships, only: [:create, :destroy]
+  	  get 'followings' => 'relationships#followings', as: 'followings'
+  	  get 'followers' => 'relationships#followers', as: 'followers'
+    end
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,4 +1,4 @@
 $(".plant_<%= @plant.id %>").html("<%= @plant.plant_comments.count %>");
 $("#plant_<%= @plant.id %>").html("<%= @plant.plant_comments.count %>件コメント");
-$("#plant_comments").html("<%= j(render 'plant_comments/index', plant: @plant) %>");
+$("#plant_comments").html("<%= j(render 'public/plant_comments/index', plant: @plant) %>");
 $("#plant_comment_comment").val("");

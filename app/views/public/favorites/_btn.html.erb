@@ -1,10 +1,10 @@
 <% if plant.favorited_by?(current_customer) %>
-  <%= link_to public_favorites_path(plant), method: :delete, remote: true do %> <!--remote: trueを追加-->
+  <%= link_to public_plant_favorites_path(plant), method: :delete, remote: true do %> <!--remote: trueを追加-->
     <i class="fas fa-heart" aria-hidden="true"></i>
     <%= plant.favorites.count %>
   <% end %>
 <% else %>
-  <%= link_to public_favorites_path(plant), method: :post, remote: true do %> <!--remote: trueを追加-->
+  <%= link_to public_plant_favorites_path(plant), method: :post, remote: true do %> <!--remote: trueを追加-->
     <i class="far fa-heart" aria-hidden="true"></i>
     <%= plant.favorites.count %>
   <% end %>

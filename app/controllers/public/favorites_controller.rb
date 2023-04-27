@@ -1,6 +1,6 @@
 class Public::FavoritesController < ApplicationController
 
-def create
+  def create
     @plant = Plant.find(params[:plant_id])
     favorite = current_customer.favorites.new(plant_id: @plant.id) #plant => @plantへ変更
     favorite.save
