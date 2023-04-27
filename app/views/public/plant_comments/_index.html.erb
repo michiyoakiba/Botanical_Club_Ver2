@@ -10,7 +10,7 @@
             <p class="card-text"><%= plant_comment.comment %></p>
           <% if plant_comment.customer == current_customer %>   
             <p class="card-text">
-            <%= link_to "削除", plant_plant_comment_path(plant_comment.plant, plant_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %></p>      
+            <%= link_to "削除", public_plant_plant_comment_path(plant_comment.plant, plant_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %></p>      
           <% end %> 
         </div>
       </div>

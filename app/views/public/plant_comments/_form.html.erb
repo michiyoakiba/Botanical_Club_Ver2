@@ -1,4 +1,4 @@
-<%= form_with model: [:public,@plant],local: false do |f| %>
+<%= form_with model: @plant_comment,local: false, url:public_plant_plant_comments_path(@plant) do |f| %>
   <div class="row">
     <div class="col-11 mx-4 mb-4">
       <%= f.text_area :comment, rows: '5', style: "width:101%",placeholder: "コメントをここに" %>
