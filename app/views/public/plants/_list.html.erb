@@ -1,7 +1,7 @@
 <div class="row">  
   <% plants.each do |plant| %>
   <div class="col-3 mx-4">  
-    <div class="card mx-4 mt-3 shadow-lg" style="width: 280px;">
+    <div class="card mr-10 mt-3 shadow-lg" style="width: 285px;">
       <%= link_to public_plant_path(plant.id) do %>
         <%= image_tag plant.get_image, class:"card-img-top img-fluid" %> 
       <% end %>
@@ -26,8 +26,8 @@
             <!--｜ </span>-->
             
             <!--｜ <span><%#= plant.genre.genre_name %></span>｜ -->
-              <span><i class="fas fa-comment"></i>
-              <%= link_to plant.plant_comments.count, public_plant_path(plant.id), class: "text-dark" %>｜</span>
+              <span><i class="fas fa-comment comment_blue" style = "color:#528fff"></i>
+              <%= link_to plant.plant_comments.count, public_plant_path(plant.id) %>｜</span>
             <!--部分テンプレートにした箇所(部分的に更新したい箇所)-->
               <span id="favorite_buttons_<%= plant.id %>">
               <%= render "public/favorites/btn", plant: plant %></span>
