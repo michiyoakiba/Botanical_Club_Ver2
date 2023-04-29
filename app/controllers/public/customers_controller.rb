@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
   
   def index
     @customer = current_customer
-    @customers = Customer.page(params[:page])
+    @customers = Customer.page(params[:page]).per(5)
   end
   
   def show
