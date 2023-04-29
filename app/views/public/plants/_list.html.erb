@@ -1,7 +1,7 @@
 <div class="row">  
   <% plants.each do |plant| %>
   <div class="col-3 mx-4">  
-    <div class="card mr-10 mt-3 shadow-lg" style="width: 285px;">
+    <div class="card mr-11 mt-3 shadow-lg" style="width: 285px;">
       <%= link_to public_plant_path(plant.id) do %>
         <%= image_tag plant.get_image, class:"card-img-top img-fluid" %> 
       <% end %>
@@ -16,7 +16,7 @@
             <p class="card-title">
               <strong><i class="fab fa-envira"></i><span>
                 <%= link_to plant.plant_name, public_plant_path(plant), class: "text-dark" %>
-              </span></strong>｜ 
+              </span></strong><br> 
             <!--<p class="card-text">説明：<%#= plant.caption %></p>-->
             
             <!--<span> ｜ -->
