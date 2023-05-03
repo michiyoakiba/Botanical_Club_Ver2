@@ -29,9 +29,9 @@
           
           <span><i class="fas fa-calendar"></i> <%= @plant.created_at.strftime('%Y/%m/%d') %> ｜ </span>
           
-          <i class="fas fa-comment"></i>
+          <i class="fas fa-comment comment_blue" style="color:#1e90ff"></i>
           <!--部分テンプレートにした箇所(コメント機能非同期通信)-->
-          <span class="plant_<%= @plant.id %>"><%= @plant.plant_comments.count %></span> ｜ 
+          <span style="color:#1e90ff" class="plant_<%= @plant.id %>"><%= @plant.plant_comments.count %></span> ｜ 
           
           <!--部分テンプレートにした箇所(いいね機能非同期通信)-->
           <span id="favorite_buttons_<%= @plant.id %>">
